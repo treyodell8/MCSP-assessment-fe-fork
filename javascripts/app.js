@@ -10,7 +10,7 @@ $('#submit').on('click', function(){
 
 // WORK NEEDED (SEE TODO)
 function performSearch(searchText){
-    // TODO: Get request to googleBookAPI_URL with search text
+    // TODO: Create a GET request to googleBookAPI_URL with search text from the input box
     var URL = googleBookAPI_URL(searchText);
     console.log(URL)
 
@@ -27,7 +27,8 @@ function googleBookAPI_URL(searchText) {
 function addResultToDOM(searchResults){
     var items = searchResults.items;
 
-    for (const item of items) {
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
         var newBook = createBookFrom(item);
 
         books[newBook.id] = newBook;
