@@ -10,10 +10,8 @@ $('#submit').on('click', function(){
 
 // WORK NEEDED (SEE TODO)
 function performSearch(searchText){
-    // TODO: Create a GET request to googleBookAPI_URL with search text from the input box
     var URL = googleBookAPI_URL(searchText);
-    console.log(URL)
-
+    // TODO: Create a GET request to googleBookAPI_URL with search text from the input box
     // TODO: Add search results from above to the DOM, use addResultToDOM and pass in your search results
 }
 
