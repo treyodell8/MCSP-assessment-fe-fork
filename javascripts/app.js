@@ -11,6 +11,10 @@ $("#submit").on("click", function () {
 function performSearch(searchText) {
   var URL = googleBookAPI_URL(searchText);
   // TODO: Create a GET request to URL with search text from the input box.
+  $.get(URL, function(data) {
+    
+    addResultToDOM(data);
+  })
   // TODO: Add search results from above to the DOM: Use addResultToDOM and pass
   // in your search results.
 }
@@ -35,7 +39,7 @@ function addResultToDOM(searchResults) {
 
   // REQUIRED TO SUCCEED: Look at what gets logged out. Make sure you read
   // what properties are being stored.
-  console.log(books);
+  // console.log(books);
 }
 
 // WORK NEEDED (SEE TODO)
@@ -51,6 +55,9 @@ resultsArea.on("click", function (event) {
     // TODO: Add bookHTML to the display area
     var bookHTML = htmlToDisplay(book);
     console.log(bookHTML);
+
+    $(displayArea).append(bookHTML)
+    
   }
 });
 
@@ -59,7 +66,7 @@ function htmlToDisplay(book) {
   // TODO: Add image from book.
   return `
     <h2>${book.title}</h2>
-    <img src="ADD book image" />
+    <img src="${book.image}" />
     <h3><span class="description">${book.description}<span></h3>
   `;
 }
